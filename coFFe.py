@@ -55,38 +55,7 @@ def banner2():
 	print(W+"              |#######|      ")
 	print(W+"                             ")
 
-def banner3():
-	print("""
-                      (
-                        )     (
-                 ___...(-------)-....___
-             .-""       )    (          ""-.
-       .-'``'|-._             )         _.-|
-      /  .--.|   `""---...........---""`   |
-     /  /    |                             |
-     |  |    |                             | 
-      \  \   |                             |
-       `\ `\ |                             |
-         `\ `|                             |
-         _/ /\                             /
-        (__/  \                           /
-     _..---""` \                         /`""---.._
-  .-'           \                       /          '-.
- :               `-.__             __.-'              :
- :                  ) ""---...---"" (                 :
-  '._               `"--...___...--"`              _.'
-jgs \''--..__                              __..--''/
-     '._     '''----.....______.....----'''     _.'
-        `''--..,,_____            _____,,..--''`
-                      `'''----'''` """)
 
-#def server():
-	#web_dir = os.path.join(os.path.dirname(__file__), 'miner_script')
-	#os.chdir(web_dir)
-	#Handler = http.server.SimpleHTTPRequestHandler
-	#httpd = socketserver.TCPServer(("", PORT), Handler)
-	#print("serving at port", PORT)
-	#httpd.serve_forever()
 
 def attack():
 	if rules_status == "Activo":
