@@ -13,9 +13,7 @@ El script se debe complementar con ettercap para ejecutar mitm6 correctamente.
 > pip install mitm6
 
 ## Ejemplos
-> python coFFe.py -p 8080 -t 192.168.0.6 -l 192.168.0.10 -g 192.168.0.1 -i wlp1s0
-
-https://raw.githubusercontent.com/mrx04programmer/CoFFe/tree/main/assets/imagen1.png
+> [python coFFe.py -p 8080 -t 192.168.0.6 -l 192.168.0.10 -g 192.168.0.1 -i wlp1s0](https://github.com/mrx04programmer/CoFFe/assets/imagen1.png)
 
 
 ## Ayuda en Ejecución
