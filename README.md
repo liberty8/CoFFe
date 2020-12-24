@@ -13,4 +13,3 @@ El script se debe complementar con ettercap para ejecutar mitm6 correctamente.
 > pip install mitm6
 
 ## Ejecución
-
