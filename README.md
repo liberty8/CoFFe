@@ -12,4 +12,12 @@ El script se debe complementar con ettercap para ejecutar mitm6 correctamente.
 - mitm6 [(Desde github)](https://github.com/fox-it/mitm6) o desde pip
 > pip install mitm6
 
-## Ejecución
+## Ejemplos
+> python 
+
+## Ayuda en Ejecución
+- Se debe ejecutar el script con privilegios root.
+- Se utiliza el parametro de puerto(-p) para definir el puerto a trabajar  (Aún esta en beta)
+- Se utiliza el parametro de gateway (-g) para definir la IP del router o gateway.
+- Se utiliza el parametro de target (-t) para definir la IP victima.
+- Se utiliza el parametro de interface (-i) para definir el adaptador de red.
