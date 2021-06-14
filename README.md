@@ -13,20 +13,25 @@ El script se debe complementar con ettercap para ejecutar mitm6 correctamente.
 > pip install mitm6
 
 ## Ejecución
-- En esta ocasión establecí el puerto 8080, la victima sera 192.168.0.6 , la ip de mi router 192.168.0.1 y la interfaz de red wlp1s0
-  > [sudo python coFFe.py -p 8080 -t 192.168.0.6 -l 192.168.0.10 -g 192.168.0.1 -i wlp1s0](https://github.com/mrx04programmer/CoFFe/tree/main/assets/imagen1.png)
-- Ejecutamos ettercap en modo de interfaz grafico (GUI) 
-  > [etttercap -G](https://github.com/mrx04programmer/CoFFe/blob/main/assets/ettercap.png)
+##### En esta ocasión establecí el puerto 8080, la victima sera 192.168.0.6 , la ip de mi router 192.168.0.1 y la interfaz de red wlp1s0
+    sudo python coFFe.py -p 8080 -t 192.168.0.6 -l 192.168.0.10 -g 192.168.0.1 -i wlp1s0
+  ![EXEC COFFE](https://imgbox.es/images/2021/06/14/imagen140d36fd54f8762e6.png)
+##### Ejecutamos ettercap en modo de interfaz grafico (GUI) 
+    etttercap -G
+![ETTERCAP1](https://imgbox.es/images/2021/06/14/ettercapb7b281a83866471b.png)
 - Alistamos la lista de host (CTRL + H)
 - Buscamos objetivos (CTRL + S)
-- [Agregamos la IP victima a **TARGET 1** y la IP del router (gateway) a **TARGET 2**
-- Nos vamos al menú de MITM y nos vamos al apartado de ARP poisosing (así como se visualiza en la imagen)](https://github.com/mrx04programmer/CoFFe/blob/main/assets/ettercap2.png)
-- [Activamos la primera opción y en **OK**](https://github.com/mrx04programmer/CoFFe/blob/main/assets/ettercap3.png)
+- Agregamos la IP victima a **TARGET 1** y la IP del router (gateway) a **TARGET 2**
+!Nos vamos al menú de MITM y nos vamos al apartado de ARP poisosing (así como se visualiza en la imagen)
+![ETTERCAP2](https://imgbox.es/images/2021/06/14/ettercap2e86d5a906d3f4d55.png)
+- Activamos la primera opción y en **OK**
+![ETTERCAP3](https://imgbox.es/images/2021/06/14/ettercap314d5e3ec71517f40.png)
 - En este momento ya estaremos capturando y exportando el trafico, donde se pueden realizar cualquier otro tipo de sniffing y spoofing de tablas ARP. tales como wireshark, sslstrip, snort, etherape, etc.
 - Para visualizar el trafico guardado como dump.pcap (por defecto) en wireshark, se ejecuta:
   > wireshark -r dump.pcap
-  - [Y ingresamos el filtro para visualizar solo el trafico de una sola IP (el objetivo)](https://github.com/mrx04programmer/CoFFe/blob/main/assets/capturando.png)
-    > ip.addr == <ip_objetivo>
+  - Y ingresamos el filtro para visualizar solo el trafico de una sola IP (el objetivo)
+  ![CAPTURA](https://imgbox.es/images/2021/06/14/capturando5a6a8543590548ba.png)
+  > ip.addr == <ip_objetivo>
 
 
 ## Ayuda en Ejecución
