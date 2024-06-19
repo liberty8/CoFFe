@@ -15,17 +15,18 @@ El script se debe complementar con ettercap para ejecutar mitm6 correctamente.
 ## Ejecución
 ##### En esta ocasión establecí el puerto 8080, la victima sera 192.168.0.6 , la ip de mi router 192.168.0.1 y la interfaz de red wlp1s0
     sudo python coFFe.py -p 8080 -t 192.168.0.6 -l 192.168.0.10 -g 192.168.0.1 -i wlp1s0
-  ![EXEC COFFE](https://imgbox.es/images/2021/06/14/imagen140d36fd54f8762e6.png)
+    ![imagen](https://github.com/mrx04programmer/CoFFe/assets/46001898/216e88bb-9ab9-4676-bbd0-458c544580d1)
+
 ##### Ejecutamos ettercap en modo de interfaz grafico (GUI) 
     etttercap -G
-![ETTERCAP1](https://imgbox.es/images/2021/06/14/ettercapb7b281a83866471b.png)
+![imagen](https://github.com/mrx04programmer/CoFFe/assets/46001898/69c5b1a2-c7fc-44c0-99c5-2c59f0b3ddf7)
+
 - Alistamos la lista de host (CTRL + H)
 - Buscamos objetivos (CTRL + S)
 - Agregamos la IP victima a **TARGET 1** y la IP del router (gateway) a **TARGET 2**
 !Nos vamos al menú de MITM y nos vamos al apartado de ARP poisosing (así como se visualiza en la imagen)
-![ETTERCAP2](https://imgbox.es/images/2021/06/14/ettercap2e86d5a906d3f4d55.png)
-- Activamos la primera opción y en **OK**
-![ETTERCAP3](https://imgbox.es/images/2021/06/14/ettercap314d5e3ec71517f40.png)
+![imagen](https://github.com/mrx04programmer/CoFFe/assets/46001898/0ad663a1-5b99-4d55-9786-ec06ba19440a)
+
 - En este momento ya estaremos capturando y exportando el trafico, donde se pueden realizar cualquier otro tipo de sniffing y spoofing de tablas ARP. tales como wireshark, sslstrip, snort, etherape, etc.
 - Para visualizar el trafico guardado como dump.pcap (por defecto) en wireshark, se ejecuta:
   > wireshark -r dump.pcap
