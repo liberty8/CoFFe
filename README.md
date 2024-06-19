@@ -33,7 +33,6 @@ El script se debe complementar con ettercap para ejecutar mitm6 correctamente.
 - Para visualizar el trafico guardado como dump.pcap (por defecto) en wireshark, se ejecuta:
   > wireshark -r dump.pcap
   - Y ingresamos el filtro para visualizar solo el trafico de una sola IP (el objetivo)
-  ![CAPTURA](https://imgbox.es/images/2021/06/14/capturando5a6a8543590548ba.png)
   > ip.addr == <ip_objetivo>
 
 
