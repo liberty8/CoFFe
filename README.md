@@ -15,7 +15,7 @@ El script se debe complementar con ettercap para ejecutar mitm6 correctamente.
 ## Ejecución
 ##### En esta ocasión establecí el puerto 8080, la victima sera 192.168.0.6 , la ip de mi router 192.168.0.1 y la interfaz de red wlp1s0
     sudo python coFFe.py -p 8080 -t 192.168.0.6 -l 192.168.0.10 -g 192.168.0.1 -i wlp1s0
-    ![imagen](https://github.com/mrx04programmer/CoFFe/assets/46001898/216e88bb-9ab9-4676-bbd0-458c544580d1)
+![imagen](https://github.com/mrx04programmer/CoFFe/assets/46001898/216e88bb-9ab9-4676-bbd0-458c544580d1)
 
 ##### Ejecutamos ettercap en modo de interfaz grafico (GUI) 
     etttercap -G
