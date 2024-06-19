@@ -1,16 +1,39 @@
-# CoFFe Man in the Middle 
-Ataque Man in the Middle simple, utilizando [mitm6](https://github.com/fox-it/mitm6) y [netsniff-ng](https://github.com/netsniff-ng/netsniff-ng).
-El script se debe complementar con ettercap para ejecutar mitm6 correctamente.
+# CoFFe ☕️
+CoFFe es un script en Python para realizar un ataque de tipo man-in-the-middle (MITM) con redirección de tráfico HTTP , es para propósitos educativos y de investigación, no para uso malintencionado.
+Requisitos
 
-## Requisitos
-- xterm
-> apt install xterm
-- python
-> apt install python
-- netsniff-ng
-> apt install netsniff-ng
-- mitm6 [(Desde github)](https://github.com/fox-it/mitm6) o desde pip
-> pip install mitm6
+    Python 2.x
+    Librerías: argparse
+
+
+Clona el repositorio:
+
+    git clone https://github.com/tu_usuario/CoFFe.git
+Navega al directorio del proyecto:
+    
+    cd CoFFe
+
+Ejecuta el script como superusuario, proporcionando los parámetros necesarios:
+
+
+    sudo python3 CoFFe.py -p [PUERTO] -g [GATEWAY] -t [TARGET] -l [IP_LOCAL] -i [INTERFAZ]
+
+        -p [PUERTO]: Puerto a utilizar.
+        -g [GATEWAY]: IP del gateway (router).
+        -t [TARGET]: IP de la víctima.
+        -l [IP_LOCAL]: IP local del sistema.
+        -i [INTERFAZ]: Interfaz de red a utilizar.
+
+## Funcionalidades
+
+    Configura IP forward y tablas iptables.
+    Redirige el tráfico HTTP/s visiblemente (con envenenamiento)
+    Muestra información detallada del ataque.
+
+🔒 Notas de Seguridad
+
+    Este script debe utilizarse solo con permiso explícito en redes autorizadas.
+    No se recomienda su uso en redes públicas o sin autorización, ya que puede ser ilegal y/o violar la privacidad de otros usuarios.
 
 ## Ejecución
 ##### En esta ocasión establecí el puerto 8080, la victima sera 192.168.0.6 , la ip de mi router 192.168.0.1 y la interfaz de red wlp1s0
@@ -35,11 +58,13 @@ El script se debe complementar con ettercap para ejecutar mitm6 correctamente.
   - Y ingresamos el filtro para visualizar solo el trafico de una sola IP (el objetivo)
   > ip.addr == <ip_objetivo>
 
+## Contribuciones
 
-## Ayuda en Ejecución
-- Se debe ejecutar el script con privilegios root.
-- Se utiliza el parametro de puerto(-p) para definir el puerto a trabajar  (Aún esta en beta)
-- Se utiliza el parametro de gateway (-g) para definir la IP del router o gateway.
-- Se utiliza el parametro de target (-t) para definir la IP objetivo.
-- Se utiliza el parametro de interface (-i) para definir el adaptador de red.
-- Se utiliza el parametro de localdomain (-l) para definir la IP local del sistema
+Las contribuciones son bienvenidas. Si deseas contribuir, sigue estos pasos:
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
+3. Realiza tus cambios y haz commit de ellos (git commit -am 'Añadir nueva funcionalidad').
+4. Haz push a la rama (git push origin feature/nueva-funcionalidad).
+5. Crea un nuevo Pull Request.
+
+
